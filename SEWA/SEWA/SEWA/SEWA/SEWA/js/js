@@ -1,0 +1,4 @@
+function showContactPopup() {
+    const popup = document.getElementById('contactPopup');
+    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+}
