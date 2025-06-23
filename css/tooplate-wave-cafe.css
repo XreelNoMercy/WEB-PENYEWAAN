@@ -1,0 +1,774 @@
+/* Tooplate 2121 Wave Cafe
+https://www.tooplate.com/view/2121-wave-cafe */
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    overflow-x: hidden;
+    background-color: #1E5050;
+}
+
+/* Judul utama */
+h1 {
+    font-family: "Alfa Slab One", serif;
+    font-weight: 400;
+    font-style: italic;
+    color: beige;
+}
+
+/* Efek transisi untuk elemen kotak dan item list */
+.square,
+.tm-list-item {
+    transition: all 0.3s ease;
+}
+
+/* Efek skala saat hover atau fokus */
+.tp-transform {
+    transform: scale(1);
+}
+.tp-transform:hover,
+.tp-transform:focus {
+    transform: scale(1.05);
+}
+
+/* Warna latar saat normal dan hover/fokus */
+.tp-color {
+    background-color: #f5f5f5;
+}
+.tp-color:hover,
+.tp-color:focus {
+    background-color: #d4f1f4;
+}
+
+/* Kombinasi efek skala dan warna */
+.tp-both {
+    transform: scale(1);
+    background-color: #f5f5f5;
+    cursor: pointer;
+    border-radius: 12px;
+    display: inline-block;
+    text-decoration: none;  
+}
+.tp-both:hover,
+.tp-both:focus {
+    transform: scale(1.05);
+    background-color: #d4f1f4;
+}
+
+/* Style untuk daftar produk */
+.tm-list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: #f7f7f7;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.tm-list-item-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.tm-list-item-text {
+    flex: 1;
+    background: none !important;
+    padding: 10px;
+}
+
+.tm-list-item-name {
+    font-size: 20px;
+    font-weight: bold !important;
+    margin: 0 0 6px;
+    color: #000 !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;;
+}
+
+.tm-list-item-price {
+    font-size: 14px;
+    color: green !important;
+    font-weight: bold !important;
+}
+
+.tm-list-item-description {
+    margin: 0;
+    color: #666;
+    font-size: 12px;
+}
+
+.tm-rental-link {
+    color: #007bff;
+    text-decoration: underline;
+}
+.tm-rental-link:hover {
+    color: #0056b3;
+}
+
+/* Popup Form Styling */
+.popup-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#popup-toggle-a6000:checked ~ #popup-a6000,
+#popup-toggle-venice2:checked ~ #popup-venice2,
+#popup-toggle-burano:checked ~ #popup-burano,
+#popup-toggle-ilce7rm5:checked ~ #popup-ilce7rm5,
+#popup-toggle-ilmefx3a:checked ~ #popup-ilmefx3a,
+#popup-toggle-6400:checked ~ #popup-6400,
+#popup-toggle-ilce7m3k:checked ~ #popup-ilce7m3k,
+#popup-toggle-xt30:checked ~ #popup-xt30,
+#popup-toggle-gfx50r:checked ~ #popup-gfx50r,
+#popup-toggle-gfx100:checked ~ #popup-gfx100,
+#popup-toggle-xs10:checked ~ #popup-xs10,
+#popup-toggle-xt3:checked ~ #popup-xt3,
+#popup-toggle-g100kga:checked ~ #popup-g100kga,
+#popup-toggle-s5:checked ~ #popup-s5,
+#popup-toggle-hot-artlens:checked ~ #popup-artlens,
+#popup-toggle-hot-dghsm:checked ~ #popup-dghsm,
+#popup-toggle-hot-dgos:checked ~ #popup-dgos,
+#popup-toggle-hot-divc:checked ~ #popup-divc,
+#popup-toggle-strawberry-smoothie:checked ~ #popup-strawberry-smoothie,
+#popup-toggle-vidiografi:checked ~ #popup-vidiografi,
+#popup-toggle-editing:checked ~ #popup-editing,
+#popup-toggle-dji-rs3-mini:checked ~ #popup-dji-rs3-mini,
+#popup-toggle-dji-air3:checked ~ #popup-dji-air3,
+#popup-toggle-vmic5-pro:checked ~ #popup-vmic5-pro,
+#popup-toggle-tripod-650ex:checked ~ #popup-tripod-650ex,
+#popup-toggle-blink500:checked ~ #popup-blink500,
+#popup-toggle-light-stang:checked ~ #popup-light-stan,
+#popup-toggle-special-contact:checked ~ #popup-special-contact,
+#popup-toggle-fx30:checked ~ #popup-fx30 {
+    display: flex;
+}
+.popup-inner {
+     background: #0B5269;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Animasi muncul */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.popup-title {
+    margin: 0;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #fff;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 5px 10px;
+    transition: color 0.3s ease
+}
+.close-btn:hover {
+    color: #ddd;
+}
+
+.popup-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-form label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.popup-form input,
+.popup-form textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #333;
+}
+
+.popup-form button {
+    padding: 10px;
+    background: #44cff5;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.popup-form button:hover {
+    background: #0056b3;
+}
+
+
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+nav > ul > li {
+    list-style: none;
+}
+
+a {
+    color: #a8d5d5;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+p {
+    line-height: 1.8;
+    margin-top: 0;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.tm-video-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.tm-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/TEST1.PNG') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.5;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.tm-container {
+    padding: 30px;
+}
+
+.tm-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tm-left,
+.tm-right {
+    width: 100%;
+    padding-left: 25px; /* Lebar navigasi (500px) + ruang (20px) */
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar total */
+    min-height: 75vh;
+}
+
+.tm-left-inner {
+    position: fixed;
+}
+
+.tm-site-header {
+    background-color: #a8d5d5;
+    color: #0B5269;
+    width: 100%;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tm-site-logo {
+    margin-right: 30px;
+}
+
+.tm-site-name {
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-style: normal;
+    text-align: center;
+    -webkit-text-stroke: 1px #0B5269; /* Stroke untuk browser WebKit (Chrome, Safari) */
+    text-shadow: 
+        1px 1px 0 #0B5269,
+        -1px -1px 0 #0B5269,
+        1px -1px 0 #0B5269,
+        -1px 1px 0 #0B5269; /* Alternatif untuk browser lain */
+}
+
+.tm-left-inner {
+    max-width: 500px;
+    width: 100%;
+}
+
+.tm-site-nav-ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.tm-page-nav-item {
+    margin-top: 20px;
+}
+
+.tm-page-link {
+    min-width: 240px;
+    height: 100px;
+    background-color: #edeae1;
+    color: #0B5269;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.tm-page-link:hover,
+.tm-page-link.active {
+    background-color: #a8d5d5;
+    color: rgb(0, 0, 0);
+}
+
+.tm-page-link-icon {
+    margin-right: 25px;
+    margin-left: 25px;
+    font-size: 1.5rem;
+}
+
+.tm-black-bg {
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    
+}
+
+.tm-drinks-nav > ul > li {
+    display: inline-block;
+}
+
+.tm-drinks-nav > ul > li > a {
+    color: white;
+    font-size: 1.2rem;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid transparent;
+}
+
+.tm-drinks-nav {
+    height: 80px;
+}
+
+.tm-main {
+    max-width: 660px;
+}
+
+.tm-drinks-nav > ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.tm-drinks-nav > ul > li a.active,
+.tm-drinks-nav > ul > li a:hover {
+    color: #96FEFF;
+    border-bottom: 4px solid #96FEFF;
+}
+
+.tm-list-item-2 {
+    align-items: flex-start;
+}
+
+.tm-list-item-img-big {
+    margin-right: 25px;
+    width: 200px;
+    height: 200px;
+}
+
+.tm-list-item-text-2 {
+    flex: 1;
+}
+
+.tm-site-footer {
+    margin-top: 15px;
+}
+
+.tm-footer-text {
+    padding: 10px 65px 10px 20px;
+    display: inline-block;
+}
+
+.tm-footer-link {
+    color: white;
+}
+
+.tm-tab-content {
+    animation: fadeEffect 1s;
+    padding: 20px;
+}
+
+.tm-page-content {
+    animation: fadeEffect 1s;
+}
+
+.tm-text-primary {
+    color: #96FEFF;
+}
+
+.tm-mb-20 {
+    margin-bottom: 20px;
+}
+
+.tm-mb-30 {
+    margin-bottom: 30px;
+}
+
+.tm-img-right {
+    margin-left: 30px;
+    margin-right: 0px;
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+.tm-about-section {
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.tm-about-header {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #96FEFF; /* Merah sesuai gambar */
+}
+
+.tm-about-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.tm-about-img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tm-about-text {
+    flex: 1;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #ffffff; /* Teks putih untuk kontras dengan latar belakang gelap */
+}
+
+.tm-about-text p {
+    margin: 10px 0;
+}
+
+/* About 
+.tm-about-box-1 {
+    padding: 40px 30px 50px 0;
+}
+
+.tm-about-box-2 {
+    padding: 50px 40px 30px;
+}
+
+.tm-about-header {
+    margin-left: 220px;
+}*/
+
+/* Special */
+
+.tm-special-items {
+    display: grid;
+    grid-template-columns: repeat(2, 0.7fr); /* Mengatur dua kolom dengan lebar yang sama */
+    gap: 10px; /* Jarak antar item */
+    padding: 10px;
+}
+
+.tm-special-item-conatct {
+    max-width: 460px;
+    padding: 40px 50px;
+    box-sizing: border-box;
+}
+
+.tm-special-item {
+    background-color: #0b5269;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tm-special-item-description {
+    padding: 15px;
+}
+
+.tm-special-item-title {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+.tm-special-item-title1{
+color: #0056b3;
+font-size: medium;
+}
+
+.tm-special-item-description {
+    padding: 15px 15px;
+}
+
+.contact-special-button {
+    position: fixed;
+    bottom: 150px;
+    left: 55px;
+    background-color: #ede1e1;
+    color: #0b5269;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 1000;
+}
+
+.contact-special-button:hover {
+    background-color: #d5a8a8;
+}
+
+.tm-special-item-contact-1 {
+    position: fixed;
+    bottom: 80px;
+    left: 80px;
+    background-color: #1a2a3a;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index: 1000;
+    width: 300px;
+    color: #fff;
+}
+
+.tm-black-bg {
+    background-color: #1a2a3a;
+}
+
+.tm-contact-form-container {
+    padding: 15px;
+}
+
+.tm-form-group {
+    margin-bottom: 15px;
+}
+
+.tm-form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #2e4a62;
+    color: #fff;
+}
+
+.tm-mb-30 {
+    margin-bottom: 30px;
+}
+
+.tm-btn-primary {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tm-btn-primary:hover {
+    background-color: #cc0000;
+}
+
+.tm-align-right {
+    text-align: right;
+}
+
+#contactPopup {
+    display: none;
+}
+ .tm-special-item-text{
+    color: #ffffff;
+}
+.tm-special-item-text1{
+    color: #000;
+    font-weight: bold;
+    font-size: small;
+}
+
+
+
+/* Contact */
+.tm-contact-text-container {
+    padding: 100px 50px;
+    margin-bottom: 20px;
+}
+
+.tm-contact-form-container {
+    max-width: 460px;
+    padding: 40px 50px;
+    box-sizing: border-box;
+}
+
+.tm-form-group {
+    margin-bottom: 25px;
+}
+
+.tm-form-control {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 2;
+    color: #fff;
+    background-color: transparent;
+    background-clip: padding-box;
+    border: 0;
+    border-bottom: 1px solid white;
+}
+
+.tm-form-control::-webkit-input-placeholder { color: white; } /* Edge */
+.tm-form-control:-ms-input-placeholder { color: white; } /* Internet Explorer 10-11 */
+.tm-form-control::placeholder { color: white; }
+
+.tm-btn-primary {
+    color: rgb(153, 0, 0);
+    background-color: white;
+    border: 0;
+    padding: 12px 40px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tm-btn-primary:hover {
+    color: white;
+    background-color: rgb(153, 31, 0);
+}
+
+.tm-align-right {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+@media (max-width: 1130px) and (min-width: 992px) {
+    .tm-left-inner { max-width: 380px; }
+    .tm-site-name { font-size: 2.6rem; }
+    .tm-site-logo { margin-right: 20px; }
+    .tm-page-link { width: 100%; }
+    .tm-page-link-icon { margin-right: 15px; }
+    .tm-left { width: 45%; }
+    .tm-right { width: 55%; }
+}
+
+@media (max-width: 991px) {
+.tm-left-inner { position: static; }
+    .tm-left, .tm-right { width: 100%; }
+    .tm-left { margin-bottom: 50px; }
+    .tm-row { display: block; }
+    .tm-right { padding-left: 0; }
+}
+@media (max-width: 574px) {
+    .tm-site-nav-ul { display: block; }
+}
+
+@media (max-width: 550px) and (min-width: 501px) {
+    .tm-list-item-img-big {
+        width: 160px;
+        height: 160px;
+    }
+    .tm-about-header { margin-left: 180px; }
+}
+
+@media (max-width: 500px) {
+    .tm-about-header { margin-left: 0; }
+    .tm-list-item-2 { flex-direction: column; }
+    .tm-about-box-1 { padding-left: 30px; }
+    .tm-list-item-img-big {
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+    .tm-img-right { margin-left: 0; }
+}
+
+@media (max-width: 479px) {
+    .tm-site-name { font-size: 2.6rem; }
+    .tm-site-logo { margin-right: 20px; }
+    .tm-list-item {
+        flex-direction: column;
+        margin-top: 40px;
+    }
+    .tm-list-item-img {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    .tm-drinks-nav { height: auto; }
+    .tm-drinks-nav > ul {
+        flex-direction: column;
+        padding: 15px;
+    }
+    .tm-drinks-nav > ul > li { margin-bottom: 10px; }
+    .tm-drinks-nav > ul > li > a { display: block; }
+}
+@media (max-width: 768px) {
+    .tm-special-items {
+        grid-template-columns: 1fr; /* Satu kolom pada layar kecil */
+    }
+}

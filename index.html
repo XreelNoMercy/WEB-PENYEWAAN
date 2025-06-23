@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARV MEDIA | jasa & penyewaan Kamera</title>
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+    <link rel="stylesheet" href="css/tooplate-wave-cafe.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Dives+Akuru&family=Roboto+Slab:wght@100..900&display=swap');
+        /* Popup Form Styling */
+        .popup-form {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-inner {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .popup-title {
+            margin: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .close-btn {
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .popup-form input[type="checkbox"]:checked ~ .popup-form {
+            display: flex;
+        }
+
+        .popup-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .popup-form label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        .popup-form input,
+        .popup-form textarea {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .popup-form button {
+            padding: 10px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup-form button:hover {
+            background: #0056b3;
+        }
+
+        .tm-list-item {
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tm-list-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .tm-list-item:active {
+            transform: scale(0.98);
+        }
+
+        .video-logo {
+            font-size: 2em;
+            color: #27ae60;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+  <div class="tm-container">
+    <div class="tm-row">
+      <!-- Site Header -->
+      <div class="tm-left">
+        <div class="tm-left-inner">
+          <div class="tm-site-header">
+            <i class="fas fa-camera fa-3x tm-site-logo"></i>
+            <h1 class="tm-site-name">ARV MEDIA</h1>
+          </div>
+          <nav class="tm-site-nav">
+            <ul class="tm-site-nav-ul">
+              <li class="tm-page-nav-item">
+                <a href="#drink" class="tm-page-link active">
+                  <i class="fas fa-tools tm-page-link-icon"></i>
+                  <span>List Service</span>
+                </a>
+              </li>
+              <li class="tm-page-nav-item">
+                <a href="#about" class="tm-page-link">
+                  <i class="fas fa-users tm-page-link-icon"></i>
+                  <span>About Us</span>
+                </a>
+              </li>
+              <li class="tm-page-nav-item">
+                <a href="#special" class="tm-page-link">
+                  <i class="fas fa-glass-martini tm-page-link-icon"></i>
+                  <span>Special Tools</span>
+                </a>
+              </li>
+              <li class="tm-page-nav-item">
+                <a href="#contact" class="tm-page-link">
+                  <i class="fas fa-comments tm-page-link-icon"></i>
+                  <span>Contact</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>        
+      </div>
+      <div class="tm-right">
+        <main class="tm-main">
+          <div id="drink" class="tm-page-content">
+            <!-- Drink Menu Page -->
+            <nav class="tm-black-bg tm-drinks-nav">
+              <ul>
+                <li>
+                  <a href="#" class="tm-tab-link active" data-id="cold">Kamera</a>
+                </li>
+                <li>
+                  <a href="#" class="tm-tab-link" data-id="hot">Lensa</a>
+                </li>
+                <li>
+                  <a href="#" class="tm-tab-link" data-id="juice">Jasa</a>
+                </li>
+                
+              </ul>
+            </nav>
+
+            <input type="checkbox" id="popup-toggle-hot-artlens" hidden>
+            <input type="checkbox" id="popup-toggle-hot-dghsm" hidden>
+            <input type="checkbox" id="popup-toggle-hot-dgos" hidden>
+            <input type="checkbox" id="popup-toggle-hot-divc" hidden>
+            <input type="checkbox" id="popup-toggle-strawberry-smoothie" hidden>
+            <input type="checkbox" id="popup-toggle-red-berry-smoothie" hidden>
+            <input type="checkbox" id="popup-toggle-pineapple-smoothie" hidden>
+            <input type="checkbox" id="popup-toggle-spinach-smoothie" hidden>
+
+            <!-- Camera Tab -->
+            <div id="cold" class="tm-tab-content">
+              <div class="tm-list">
+                <!-- Sony A6000 -->
+                <label for="popup-toggle-a6000" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/SONY A6000.png" alt="Sony A6000" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Sony A6000<span class="tm-list-item-price">Rp. 80,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Sony A6000.</p>
+                  </div>
+                </label>
+                <!-- Sony Venice 2 -->
+                <label for="popup-toggle-venice2" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/SONY VENICE 2.jpg" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Sony Venice 2<span class="tm-list-item-price">Rp. 1,000,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Sony Venice 2.</p>
+                  </div>
+                </label>
+                <!-- Sony FX30 -->
+                <label for="popup-toggle-fx30" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/SONY FX30.png" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Sony FX30<span class="tm-list-item-price">Rp. 750,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Sony FX30.</p>
+                  </div>
+                </label>
+                <!-- Sony Burano -->
+                <label for="popup-toggle-burano" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/SONY BURANO.jpg" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Sony Burano<span class="tm-list-item-price">Rp. 1000,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Sony Burano.</p>
+                  </div>
+                </label>
+                <!-- Sony ILCE-7RM5 -->
+                <label for="popup-toggle-ilce7rm5" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/Sony ILCE-7RM5.png" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Sony ILCE-7RM5<span class="tm-list-item-price">Rp 750,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Sony ILCE-7RM5.</p>
+                  </div>
+                </label>
+                <!-- Sony ILME-FX3A -->
+                <label for="popup-toggle-ilmefx3a" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/SONY ILME FX3A.webp" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Sony ILME-FX3A<span class="tm-list-item-price">Rp 750,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Sony ILME-FX3A.</p>
+                  </div>
+                </label>
+                <!-- Sony 6400 -->
+                <label for="popup-toggle-6400" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/SONY A6400.png" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Sony 6400<span class="tm-list-item-price">Rp. 100,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Sony 6400.</p>
+                  </div>
+                </label>
+                <!-- Sony ILCE-7M3K -->
+                <label for="popup-toggle-ilce7m3k" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/Sony ILCE-7M3K.png" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Sony ILCE-7M3K<span class="tm-list-item-price">Rp. 250,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Sony ILCE-7M3K.</p>
+                  </div>
+                </label>
+                <!-- Fuji X-T30 -->
+                <label for="popup-toggle-xt30" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/FUJI XT30.png" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Fuji X-T30<span class="tm-list-item-price">Rp. 300,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Fuji X-T30.</p>
+                  </div>
+                </label>
+                <!-- Fuji GFX 50R -->
+                <label for="popup-toggle-gfx50r" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/Fujifilm-GFX-50R-02.png" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Fuji GFX 50R<span class="tm-list-item-price">Rp. 200,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Fuji GFX 50R.</p>
+                  </div>
+                </label>
+                <!-- Fuji GFX100 -->
+                <label for="popup-toggle-gfx100" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/FUJI GX100.jpg" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Fuji GFX100<span class="tm-list-item-price">Rp. 250,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Fuji GFX100.</p>
+                  </div>
+                </label>
+                <!-- Fuji X-S10 -->
+                <label for="popup-toggle-xs10" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/FUJI X-S10.png" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Fuji X-S10<span class="tm-list-item-price">Rp. 250,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Fuji X-S10.</p>
+                  </div>
+                </label>
+                <!-- Fuji X-T3 -->
+                <label for="popup-toggle-xt3" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/FUJI XT3.png" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Fuji X-T3<span class="tm-list-item-price">RP. 100,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Fuji X-T3.</p>
+                  </div>
+                </label>
+                <!-- Lumix G DC-G100KGA-K -->
+                <label for="popup-toggle-g100kga" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/Lumix G DC-G100KGA-K.png" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Lumix G DC-G100KGA-K<span class="tm-list-item-price">Rp. 500,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Lumix G DC-G100KGA-K.</p>
+                  </div>
+                </label>
+                <!-- Lumix S DC-S5 -->
+                <label for="popup-toggle-s5" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/LUMIX S DC-S5M2.png" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Lumix S DC-S5<span class="tm-list-item-price">Rp. 500,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Lumix S DC-S5.</p>
+                  </div>
+                </label>
+              </div>
+            </div> 
+
+            <!-- Lens Tab -->
+            <div id="hot" class="tm-tab-content">
+              <div class="tm-list">
+                <!-- Sigma 18-35 f/1.8 DC HSM Art Lens -->
+                <label for="popup-toggle-hot-artlens" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/pimage4_18-35 (1).jpg" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Sigma 18-35 f/1.8 DC HSM Art Lens<span class="tm-list-item-price">Rp. 250,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Sigma 18-35 f/1.8 DC HSM Art Lens.</p>
+                  </div>
+                </label>
+                <!-- Sigma 14-24mm f/2.8 DG HSM -->
+                <label for="popup-toggle-hot-dghsm" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/lens.jpg" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Sigma 14-24mm f/2.8 DG HSM<span class="tm-list-item-price">Rp. 350,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Sigma 14-24mm f/2.8 DG HSM.</p>
+                  </div>
+                </label>
+                <!-- Sigma 24-70mm f/2.8 DG OS HSM Art Lens -->
+                <label for="popup-toggle-hot-dgos" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/sigma_sigma-24-70mm-f-2-8-dg-os-hsm-art-lens-for-canon-ef_full03.jpg" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Sigma 24-70mm f/2.8 DG OS HSM Art Lens<span class="tm-list-item-price">Rp. 200,000</span></h3>
+                    <p class="tm-list-item-description">Klik untuk menyewa Sigma 24-70mm f/2.8 DG OS HSM Art Lens.</p>
+                  </div>
+                </label>
+                <!-- Tamron SP 70-200mm f/2.8 Di VC USD G2 -->
+                <label for="popup-toggle-hot-divc" class="tm-list-item tp-both" tabindex="0">          
+                  <img src="img/tamron_tamron-sp-70-200mm-f-2-8-di-vc-usd-g2-lens-for-canon-ef_full01.jpg" alt="Image" class="tm-list-item-img">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Tamron SP 70-200mm f/2.8 Di VC USD G2<span class="tm-list-item-price">Rp. 350,000</span></h3>
+                    <p class="tm-list-item-description">Tamron SP 70-200mm f/2.8 Di VC USD G2.</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Service Tab -->
+            <div id="juice" class="tm-tab-content">
+              <div class="tm-list">
+                <!-- Videografi -->
+                <label for="popup-toggle-strawberry-smoothie" class="tm-list-item tp-both" tabindex="0">
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">Videografi<span class="tm-list-item-price"></span></h3>
+                    <p class="tm-list-item-description">Info Lebih Detail, Hubungi Kami</p>
+                  </div>
+                </label>
+                <!-- Red Berry Smoothie -->
+                <label for="popup-toggle-vidiografi" class="tm-list-item tp-both" tabindex="0">          
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">FOTOGRAFER<span class="tm-list-item-price"></span></h3>
+                    <p class="tm-list-item-description">Info Lebih Detail, Hubungi Kami</p>
+                  </div>
+                </label>
+                <!-- Pineapple Smoothie -->
+                <label for="popup-toggle-editing" class="tm-list-item tp-both" tabindex="0">          
+                  <div class="tm-black-bg tm-list-item-text">
+                    <h3 class="tm-list-item-name">EDITING<span class="tm-list-item-price"></span></h3>
+                    <p class="tm-list-item-description">Info Lebih Detail, Hubungi Kami</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <!-- Checkboxes for Popups -->
+            <input type="checkbox" id="popup-toggle-a6000" hidden>
+            <input type="checkbox" id="popup-toggle-venice2" hidden>
+            <input type="checkbox" id="popup-toggle-fx30" hidden>
+            <input type="checkbox" id="popup-toggle-burano" hidden>
+            <input type="checkbox" id="popup-toggle-ilce7rm5" hidden>
+            <input type="checkbox" id="popup-toggle-ilmefx3a" hidden>
+            <input type="checkbox" id="popup-toggle-6400" hidden>
+            <input type="checkbox" id="popup-toggle-ilce7m3k" hidden>
+            <input type="checkbox" id="popup-toggle-xt30" hidden>
+            <input type="checkbox" id="popup-toggle-gfx50r" hidden>
+            <input type="checkbox" id="popup-toggle-gfx100" hidden>
+            <input type="checkbox" id="popup-toggle-xs10" hidden>
+            <input type="checkbox" id="popup-toggle-xt3" hidden>
+            <input type="checkbox" id="popup-toggle-g100kga" hidden>
+            <input type="checkbox" id="popup-toggle-s5" hidden>
+            <input type="checkbox" id="popup-toggle-strawberry-smoothie" hidden>
+            <input type="checkbox" id="popup-toggle-vidiografi" hidden>
+            <input type="checkbox" id="popup-toggle-editing" hidden>
+            <input type="checkbox" id="popup-toggle-spinach-smoothie" hidden>
+            <input type="checkbox" id="popup-toggle-dji-air3" hidden>
+            <input type="checkbox" id="popup-toggle-dji-rs3-mini" hidden>
+            <input type="checkbox" id="popup-toggle-vmic5-pro" hidden>
+            <input type="checkbox" id="popup-toggle-tripod-650ex" hidden>
+            <input type="checkbox" id="popup-toggle-blink500" hidden>
+            <input type="checkbox" id="popup-toggle-light-stand" hidden>
+
+            <!-- Popup Forms -->
+            <!-- Sony A6000 -->
+            <div class="popup-form" id="popup-a6000">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-a6000" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - Sony A6000</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa Sony A6000.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!-- Sony Venice 2 -->
+            <div class="popup-form" id="popup-venice2">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-venice2" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - Sony Venice 2</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa Sony Venice 2.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!-- Sony FX30 -->
+            <div class="popup-form" id="popup-fx30">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-fx30" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - Sony FX30</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa Sony FX30.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!-- Sony Burano -->
+            <div class="popup-form" id="popup-burano">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-burano" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - Sony Burano</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa Sony Burano.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!-- Sony ILCE-7RM5 -->
+            <div class="popup-form" id="popup-ilce7rm5">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-ilce7rm5" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - Sony ILCE-7RM5</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa Sony ILCE-7RM5.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!-- Sony ILME-FX3A -->
+           <div class="popup-form" id="popup-ilmefx3a">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-ilmefx3a" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - Sony ILME-FX3A</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa Sony ILME-FX3A.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!-- Sony 6400 -->
+                       <div class="popup-form" id="popup-6400">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-6400" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - Sony A6400</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa Sony A6400.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!-- Sony ILCE-7M3K -->
+                       <div class="popup-form" id="popup-ilce7m3k">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-ilce7m3k" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - Sony ILCE-7M3K</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa Sony ILCE-7M3K.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!-- Fuji X-T30 -->
+                       <div class="popup-form" id="popup-xt30">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-xt30" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - FUJI X-T30</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa FUJI X-T30.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!-- Fuji GFX 50R -->
+            <div class="popup-form" id="popup-gfx50r">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-gfx50r" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - FUJI GFX 50R</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa FUJI GFX 50R.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!-- Fuji GFX100 -->
+            <div class="popup-form" id="popup-gfx100">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-gfx100" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - FUJI GFX 100</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa FUJI GFX 100.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!-- Fuji X-S10 -->
+            <div class="popup-form" id="popup-xs10">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-xs10" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - FUJI X-S10</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa FUJI X-S10.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!-- Fuji X-T3 -->
+            <div class="popup-form" id="popup-xt3">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-xt3" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - FUJI X-T3</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa FUJI X-T3.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!-- Lumix G DC-G100KGA-K -->
+            <div class="popup-form" id="popup-g100kga">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-g100kga" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - LUMIX G DC-G100KGA-K</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa LUMIX G DC-G100KGA-K.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!-- Lumix S DC-S5 -->
+            <div class="popup-form" id="popup-s5">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-s5" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - Lumix S DC-S5</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa Lumix S DC-S5.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!--Sigma 18-35 f/1.8 DC HSM Art Lenso -->
+             <div class="popup-form" id="popup-artlens">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-hot-artlens" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - Sigma 18-35 f/1.8 DC HSM Art Lens</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa Sigma 18-35 f/1.8 DC HSM Art Lens.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!-- Sigma 14-24mm f/2.8 DG HSM -->
+            <div class="popup-form" id="popup-dghsm">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-hot-dghsm" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - Sigma 14-24mm f/2.8 DG HSM</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa Sigma 14-24mm f/2.8 DG HSM.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!-- Sigma 24-70mm f/2.8 DG OS HSM Art Lens -->
+            <div class="popup-form" id="popup-dgos">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-hot-dgos" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - Sigma 24-70mm f/2.8 DG OS HSM Art Lens</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa Sigma 24-70mm f/2.8 DG OS HSM Art Lens.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+            <!-- Tamron SP 70-200mm f/2.8 Di VC USD G2 -->
+            <div class="popup-form" id="popup-divc">
+    <div class="popup-inner">
+        <div class="popup-header">
+            <label for="popup-toggle-hot-divc" class="close-btn" title="tutup">✕</label>
+            <h2 class="popup-title">Form Penyewaan - Tamron SP 70-200mm f/2.8 Di VC USD G2</h2>
+        </div>
+        <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+            <input type="hidden" name="text" id="wa-message">
+            <label>Nama</label>
+            <input type="text" name="nama" required>
+            <label>Alamat</label>
+            <input type="text" name="alamat" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>No. Telepon</label>
+            <input type="text" name="telepon" required>
+            <label>Berapa hari?</label>
+            <input type="text" name="durasi" required>
+            <button type="submit" onclick="this.form.text.value = 
+                  'Halo, saya ingin menyewa Tamron SP 70-200mm f/2.8 Di VC USD G2.\n' +
+                  'Nama: ' + this.form.nama.value + '\n' +
+                  'Alamat: ' + this.form.alamat.value + '\n' +
+                  'Email: ' + this.form.email.value + '\n' +
+                  'No HP: ' + this.form.telepon.value + '\n' +
+                  'Saya ingin menyewa: ' + this.form.durasi.value+'hari'">
+                Kirim via WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+                        <div class="popup-form" id="popup-strawberry-smoothie">
+                            <div class="popup-inner">
+                                <div class="popup-header">
+                                    <label for="popup-toggle-strawberry-smoothie" class="close-btn" title="tutup">✕</label>
+                                    <h2 class="popup-title">Form Pemesanan - Jasa Videografer</h2>
+                                </div>
+                                <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+                                    <input type="hidden" name="text" id="wa-message">
+                                    <label>Nama</label>
+                                    <input type="text" name="nama" required>
+                                    <label>Alamat</label>
+                                    <input type="text" name="alamat" required>
+                                    <label>Email</label>
+                                    <input type="email" name="email" required>
+                                    <label>No. Telepon</label>
+                                    <input type="text" name="telepon" required>
+                                    <label>Deskripsi Kebutuhan</label>
+                                    <textarea name="deskripsi" required></textarea>
+                                    <button type="submit" onclick="this.form.text.value = 
+                                        'Halo, saya ingin memesan jasa Videografer.\n' +
+                                        'Nama: ' + this.form.nama.value + '\n' +
+                                        'Alamat: ' + this.form.alamat.value + '\n' +
+                                        'Email: ' + this.form.email.value + '\n' +
+                                        'No HP: ' + this.form.telepon.value + '\n' +
+                                        'Deskripsi: ' + this.form.deskripsi.value">Kirim via WhatsApp</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="popup-form" id="popup-vidiografi">
+                            <div class="popup-inner">
+                                <div class="popup-header">
+                                    <label for="popup-toggle-vidiografi" class="close-btn" title="tutup">✕</label>
+                                    <h2 class="popup-title">Form Pemesanan - Jasa Fotografer</h2>
+                                </div>
+                                <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+                                    <input type="hidden" name="text" id="wa-message">
+                                    <label>Nama</label>
+                                    <input type="text" name="nama" required>
+                                    <label>Alamat</label>
+                                    <input type="text" name="alamat" required>
+                                    <label>Email</label>
+                                    <input type="email" name="email" required>
+                                    <label>No. Telepon</label>
+                                    <input type="text" name="telepon" required>
+                                    <label>Deskripsi Kebutuhan</label>
+                                    <textarea name="deskripsi" required></textarea>
+                                    <button type="submit" onclick="this.form.text.value = 
+                                        'Halo, saya ingin memesan jasa Fotografer.\n' +
+                                        'Nama: ' + this.form.nama.value + '\n' +
+                                        'Alamat: ' + this.form.alamat.value + '\n' +
+                                        'Email: ' + this.form.email.value + '\n' +
+                                        'No HP: ' + this.form.telepon.value + '\n' +
+                                        'Deskripsi: ' + this.form.deskripsi.value">Kirim via WhatsApp</button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Pineapple Smoothie -->
+                        <div class="popup-form" id="popup-editing">
+                            <div class="popup-inner">
+                                <div class="popup-header">
+                                    <label for="popup-toggle-editing" class="close-btn" title="tutup">✕</label>
+                                    <h2 class="popup-title">Form Pemesanan - Jasa Editing</h2>
+                                </div>
+                                <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+                                    <input type="hidden" name="text" id="wa-message">
+                                    <label>Nama</label>
+                                    <input type="text" name="nama" required>
+                                    <label>Alamat</label>
+                                    <input type="text" name="alamat" required>
+                                    <label>Email</label>
+                                    <input type="email" name="email" required>
+                                    <label>No. Telepon</label>
+                                    <input type="text" name="telepon" required>
+                                    <label>Deskripsi Kebutuhan</label>
+                                    <textarea name="deskripsi" required></textarea>
+                                    <button type="submit" onclick="this.form.text.value = 
+                                        'Halo, saya ingin memesan jasa Editing.\n' +
+                                        'Nama: ' + this.form.nama.value + '\n' +
+                                        'Alamat: ' + this.form.alamat.value + '\n' +
+                                        'Email: ' + this.form.email.value + '\n' +
+                                        'No HP: ' + this.form.telepon.value + '\n' +
+                                        'Deskripsi: ' + this.form.deskripsi.value">Kirim via WhatsApp</button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+            <!-- Spinach Smoothie -->
+            <div class="popup-form" id="popup-spinach-smoothie">
+              <div class="popup-inner">
+                <div class="popup-header">
+                  <label for="popup-toggle-spinach-smoothie" class="close-btn" title="tutup">?</label>
+                  <h2 class="popup-title">Form Penyewaan - Spinach Smoothie</h2>
+                </div>
+                <form action="https://wa.me/6281279910028" method="GET" target="_blank">
+                  <input type="hidden" name="text" value="Halo, saya ingin menyewa Spinach Smoothie. Harga: $18.50">
+                  <label>Nama</label>
+                  <input type="text" name="nama" required>
+                  <label>Alamat</label>
+                  <input type="text" name="alamat" required>
+                  <label>Email</label>
+                  <input type="email" name="email" required>
+                  <label>No. Telepon</label>
+                  <input type="text" name="telepon" required>
+                  <label>Berapa hari?</label>
+                  <input type="text" name="durasi" required>
+                  <button type="submit">Kirim via WhatsApp</button>
+                </form>
+              </div>
+            </div>
+            <!-- End Popup Forms -->
+          </div>
+
+<div id="about" class="tm-page-content" style="display: none;">
+    <div class="tm-black-bg tm-about-section">
+        <h2 class="tm-text-primary tm-about-header">ARV MEDIA</h2>
+        <div class="tm-about-item">
+            <img src="img/TEST1.png" alt="About ARV MEDIA" class="tm-about-img">
+            <div class="tm-about-text">
+                <p>ARV MEDIA adalah penyedia layanan kreatif dan profesional yang bergerak di bidang penyewaan kamera serta jasa produksi visual. Kami hadir untuk menjadi partner terbaik Anda dalam menghasilkan karya visual berkualitas tinggi, baik untuk kebutuhan pribadi, bisnis, maupun komersial.</p>
+            </div>
+        </div>
+    </div>
+    <div class="tm-black-bg tm-about-section">
+        <h2 class="tm-text-primary tm-about-header">Visi</h2>
+        <div class="tm-about-text">
+            <p>Menjadi penyedia layanan visual terdepan di Indonesia yang mendukung kreativitas tanpa batas melalui teknologi dan keahlian profesional.</p>
+        </div>
+    </div>
+    <div class="tm-black-bg tm-about-section">
+        <h2 class="tm-text-primary tm-about-header">Misi</h2>
+        <div class="tm-about-text">
+            <ul>
+                <li>Menyediakan peralatan kamera dan perlengkapan produksi yang lengkap, modern, dan terawat.</li>
+                <li>Memberikan layanan videografi, fotografi, dan editing vidio yang profesional dan sesuai permintaan klien.</li>
+                <li>Mendorong kolaborasi kreatif antara tim kami dan klien untuk menciptakan hasil terbaik.</li>
+                <li>Menjadi tempat tumbuhnya komunitas kreatif melalui layanan yang mudah, cepat, dan terpercaya.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="tm-black-bg tm-about-section">
+        <h2 class="tm-text-primary tm-about-header">Layanan Kami</h2>
+        <div class="tm-about-text">
+            <ul>
+                <li><strong>Penyewaan Kamera dan Perlengkapan Produksi</strong><br>Kamera profesional, lensa, lighting, stabilizer, dan perlengkapan lainnya untuk keperluan shooting atau dokumentasi.</li>
+                <li><strong>Jasa Videografer</strong><br>Dokumentasi event, video promosi, company profile, wedding, hingga produksi film pendek.</li>
+                <li><strong>Jasa Fotografer</strong><br>Meliputi foto produk, pre-wedding, event, lifestyle, hingga sesi potret profesional.</li>
+                <li><strong>Jasa Editing</strong><br>Editing video dan foto profesional—dari color grading, motion graphics, hingga retouching untuk hasil visual yang maksimal.
+        </div>
+    </div>
+    <div class="tm-black-bg tm-about-section">
+        <h2 class="tm-text-primary tm-about-header">Kenapa Memilih ARV MEDIA?</h2>
+        <div class="tm-about-text">
+            <ul>
+                <li>✅ Peralatan Lengkap dan Terbaru</li>
+                <li>✅ Tim Profesional dan Berpengalaman</li>
+                <li>✅ Harga Bersaing</li>
+                <li>✅ Pelayanan Cepat & Responsif</li>
+                <li>✅ Fleksibel untuk Kebutuhan Personal maupun Komersial</li>
+            </ul>
+        </div>
+    </div>
+    <div class="tm-black-bg tm-about-section">
+        <h2 class="tm-text-primary tm-about-header">Lokasi dan Jangkauan</h2>
+        <div class="tm-about-text">
+            <p>Kami berbasis di Provinsi Jambi, dan siap melayani penyewaan serta jasa visual ke berbagai wilayah di Jambi, baik secara langsung maupun melalui pengiriman.</p>
+        </div>
+    </div>
+    <div class="tm-black-bg tm-about-section">
+        <h2 class="tm-text-primary tm-about-header">Hubungi Kami</h2>
+        <div class="tm-about-text">
+            <p>Siap untuk memulai proyek Anda? 👉 Hubungi kami sekarang dan dapatkan layanan terbaik dari ARV MEDIA!</p>
+        </div>
+    </div>
+</div>
+                    <!-- end About Us Page -->
+          <!-- Special Items Page -->
+<!-- Modified "Special Items" Section -->
+<div id="special" class="tm-page-content">
+    <div class="tm-special-items">
+        <!-- Existing Items (unchanged) -->
+        <div class="tm-black-bg tm-special-item">
+            <img src="img/DRONE-DJI AIR 3[17JT]11(1).jpeg" alt="Image">
+            <div class="tm-special-item-description">
+                <h2 class="tm-text-primary tm-special-item-title">DRONE-DJI AIR3<br><span class="tm-list-item-price">Rp. 300,000</span></h2>
+                <p class="tm-special-item-text">Drone canggih ini menawarkan kemampuan terbang superior, ideal untuk pengambilan gambar udara profesional. Deskripsinya juga mencatat batasan penggunaan dan redistribusi.</p>  
+            </div>
+        </div>
+        <div class="popup-form" id="popup-dji-air3">
+            <div class="popup-inner">
+                <div class="popup-header">
+                    <label for="popup-toggle-dji-air3" class="close-btn" title="tutup">✕</label>
+                    <h2 class="popup-title">Form Penyewaan - DJI Air 3</h2>
+                </div>
+                <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+                    <input type="hidden" name="text" id="wa-message">
+                    <label>Nama</label>
+                    <input type="text" name="nama" required>
+                    <label>Alamat</label>
+                    <input type="text" name="alamat" required>
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                    <label>No. Telepon</label>
+                    <input type="text" name="telepon" required>
+                    <label>Berapa hari?</label>
+                    <input type="text" name="durasi" required>
+                    <button type="submit" onclick="this.form.text.value = 
+                          'Halo, saya ingin menyewa DJI Air 3.\n' +
+                          'Nama: ' + this.form.nama.value + '\n' +
+                          'Alamat: ' + this.form.alamat.value + '\n' +
+                          'Email: ' + this.form.email.value + '\n' +
+                          'No HP: ' + this.form.telepon.value + '\n' +
+                          'Saya ingin menyewa: ' + this.form.durasi.value + ' hari'">
+                        Kirim via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="tm-black-bg tm-special-item">
+            <img src="img/DJI-RS-3-Mini-3(3).jpg" alt="Image">
+            <div class="tm-special-item-description">
+                <h2 class="tm-text-primary tm-special-item-title">DJI-RS-3-Mini-3<br><span class="tm-list-item-price">Rp. 250,000</span></h2>
+                <p class="tm-special-item-text">Gimbal stabilisator kamera yang ringkas dan ringan, dirancang untuk menghasilkan rekaman video yang mulus dan stabil. Pengguna diizinkan untuk mengunduh, memodifikasi, dan menggunakan template ini untuk tujuan komersial atau non-komersial.</p>  
+            </div>
+        </div>
+        <div class="tm-black-bg tm-special-item">
+            <img src="img/TESS(1).jpg" alt="Image">
+            <div class="tm-special-item-description">
+                <h2 class="tm-text-primary tm-special-item-title">Saramonic Vmic5 Pro<br><span class="tm-list-item-price">Rp. 150,000</span></h2>
+                <p class="tm-special-item-text">Mikrofon shotgun profesional yang memberikan kualitas audio jernih dan fokus, cocok untuk wawancara, vlog, atau produksi video lainnya.</p>  
+            </div>
+        </div>
+        <div class="tm-black-bg tm-special-item">
+            <img src="img/TRIPOD- 650EX [3JT].jpeg" alt="Image">
+            <div class="tm-special-item-description">
+                <h2 class="tm-text-primary tm-special-item-title">TRIPOD- 650EX<br><span class="tm-list-item-price">Rp. 100,000</span></h2>
+                <p class="tm-special-item-text">Tripod kokoh dan serbaguna, penting untuk menstabilkan kamera dan peralatan lainnya, memastikan bidikan yang tajam dan stabil.</p>  
+            </div>
+        </div>      
+        <div class="tm-black-bg tm-special-item">
+            <img src="img/saramonic(1).jpg" alt="Image">
+            <div class="tm-special-item-description">
+                <h2 class="tm-text-primary tm-special-item-title">SARAMONIC BLINK 500<br><span class="tm-list-item-price">Rp. 75,000</span></h2>
+                <p class="tm-special-item-text">Sistem mikrofon nirkabel ultra-kompak yang menawarkan solusi audio portabel dan berkualitas tinggi, ideal untuk pembuat konten dan jurnalis.</p>  
+            </div>
+        </div>
+        <div class="tm-black-bg tm-special-item">
+            <img src="img/LIGHT STAND- 240F [600K].jpeg" alt="Image">
+            <div class="tm-special-item-description">
+                <h2 class="tm-text-primary tm-special-item-title">LIGHT STAND- 240F<br><span class="tm-list-item-price">Rp. 60,000</span></h2>
+                <p class="tm-special-item-text">Stand lampu yang kuat dan dapat disesuaikan, digunakan untuk menopang berbagai jenis lampu studio atau flash, penting untuk pencahayaan yang optimal dalam fotografi dan videografi.</p>  
+            </div>
+        </div>  
+        <!-- Modified Contact Special Tools Item -->
+       
+            <label for="popup-toggle-special-contact" class="tm-list-item tp-both" tabindex="0">
+                <div class="tm-special-item-description">
+                    <h2 class="tm-text-primary tm-special-item-title1">Contact Special Tools</h2>
+                    <p class="tm-special-item-text1">Click to contact us for special tools inquiries.</p>
+                </div>
+            </label>
+        </div>
+    </div>
+    <!-- Checkbox for Special Tools Popup -->
+    <input type="checkbox" id="popup-toggle-special-contact" hidden>
+    <!-- Popup Form for Special Tools -->
+    <div class="popup-form" id="popup-special-contact">
+        <div class="popup-inner">
+            <div class="popup-header">
+                <label for="popup-toggle-special-contact" class="close-btn" title="tutup">✕</label>
+                <h2 class="popup-title">Form Pemesanan - Special Tools</h2>
+            </div>
+            <form action="https://wa.me/6288707087886" method="GET" target="_blank">
+                <input type="hidden" name="text" id="wa-message">
+                <label for="nama">Nama</label>
+                <input type="text" id="nama" name="nama" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="alamat">Alamat</label>
+                <input type="text" id="alamat" name="alamat" required>
+                <label for="deskripsi">Deskripsi Kebutuhan</label>
+                <textarea id="deskripsi" name="deskripsi" required></textarea>
+                <button type="submit" onclick="this.form.text.value = 
+                      'Halo, saya ingin memesan Special Tools.\n' +
+                      'Nama: ' + this.form.nama.value + '\n' +
+                      'Email: ' + this.form.email.value + '\n' +
+                      'Alamat: ' + this.form.alamat.value + '\n' +
+                      'Deskripsi: ' + this.form.deskripsi.value">
+                    Kirim via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div> 
+          <!-- end Special Items Page -->
+           
+           
+
+          <!-- Contact Page -->
+          <div id="contact" class="tm-page-content">
+            <div class="tm-black-bg tm-contact-text-container">
+              <h2 class="tm-text-primary">ARV MEDIA</h2>
+              <p>Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan, membutuhkan informasi lebih lanjut, atau ingin bekerja sama dengan ARV Media. Tim kami siap membantu Anda secepat mungkin.</p>
+            </div>
+            <div class="tm-black-bg tm-contact-form-container tm-align-right">
+              <form action="" method="POST" id="contact-form">
+                <div class="tm-form-group">
+                  <input type="text" name="name" class="tm-form-control" placeholder="Name" required="" />
+                </div>
+                <div class="tm-form-group">
+                  <input type="email" name="email" class="tm-form-control" placeholder="Email" required="" />
+                </div>        
+                <div class="tm-form-group tm-mb-30">
+                  <textarea rows="6" name="message" class="tm-form-control" placeholder="Message" required=""></textarea>
+                </div>        
+                <div>
+                  <button type="submit" class="tm-btn-primary tm-align-right">
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- end Contact Page -->
+        </main>
+      </div>    
+    
+    
+  <!-- Background video -->
+ <div class="tm-video-wrapper">
+    <div class="tm-background-image" style="background: url('img/P24\ ARV\ MEDIA.png') no-repeat center center fixed; background-size: cover; width: 100%; height: 100%; opacity: 0.5;"></div>
+</div>
+
+<script src="js/jquery-3.4.1.min.js"></script>    
+<script>
+    function setImageSize() {
+        const imgWidth = 1920;
+        const imgHeight = 1080;
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const tempImgWidth = windowHeight * imgWidth / imgHeight;
+        const tempImgHeight = windowWidth * imgHeight / imgWidth;
+        const newImgWidth = tempImgWidth > windowWidth ? tempImgWidth : windowWidth;
+        const newImgHeight = tempImgHeight > windowHeight ? tempImgHeight : windowHeight;
+        const tmImage = $('.tm-background-image');
+
+        tmImage.css('width', newImgWidth);
+        tmImage.css('height', newImgHeight);
+    }
+
+    function openTab(evt, id) {
+        $('.tm-tab-content').hide();
+        $('#' + id).show();
+        $('.tm-tab-link').removeClass('active');
+        $(evt.currentTarget).addClass('active');
+    }    
+
+    function initPage() {
+        let pageId = location.hash;
+
+        if(pageId) {
+            highlightMenu($(`.tm-page-link[href^="${pageId}"]`)); 
+            showPage($(pageId));
+        }
+        else {
+            pageId = $('.tm-page-link.active').attr('href');
+            showPage($(pageId));
+        }
+    }
+
+    function highlightMenu(menuItem) {
+        $('.tm-page-link').removeClass('active');
+        menuItem.addClass('active');
+    }
+
+    function showPage(page) {
+        $('.tm-page-content').hide();
+        page.show();
+    }
+
+    $(document).ready(function(){
+        initPage();
+
+        $('.tm-page-link').click(function(event) {
+            if(window.innerWidth > 991) {
+                event.preventDefault();
+            }
+            highlightMenu($(event.currentTarget));
+            showPage($(event.currentTarget.hash));
+        });
+
+        $('.tm-tab-link').on('click', e => {
+            e.preventDefault(); 
+            openTab(e, $(e.target).data('id'));
+        });
+
+        $('.tm-tab-link.active').click();
+
+        setImageSize();
+
+        let timeout;
+        window.onresize = function(){
+            clearTimeout(timeout);
+            timeout = setTimeout(setImageSize, 100);
+        };
+    });
+</script>
+</body>
+</html>
