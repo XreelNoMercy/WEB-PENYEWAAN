@@ -11,6 +11,13 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Dives+Akuru&family=Roboto+Slab:wght@100..900&display=swap');
         /* Popup Form Styling */
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Popup Form Styling */
         .popup-form {
             position: fixed;
             top: 0;
@@ -19,7 +26,11 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.6);
             display: none;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
             justify-content: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
             align-items: center;
             z-index: 1000;
         }
@@ -30,12 +41,20 @@
             border-radius: 10px;
             max-width: 500px;
             width: 90%;
+            -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .popup-header {
+            display: -webkit-flex;
+            display: -ms-flexbox;
             display: flex;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
             justify-content: space-between;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
             align-items: center;
             margin-bottom: 20px;
         }
@@ -52,12 +71,20 @@
             color: #333;
         }
 
-        .popup-form input[type="checkbox"]:checked ~ .popup-form {
+        /* Perbaikan Logika Popup */
+        input[type="checkbox"] {
+            display: none;
+        }
+        input[type="checkbox"]:checked + .popup-form {
             display: flex;
         }
 
         .popup-form form {
+            display: -webkit-flex;
+            display: -ms-flexbox;
             display: flex;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
             flex-direction: column;
         }
 
@@ -74,6 +101,9 @@
             border-radius: 5px;
             width: 100%;
             box-sizing: border-box;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
 
         .popup-form button {
@@ -83,6 +113,10 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            -webkit-transition: background 0.3s ease;
+            -moz-transition: background 0.3s ease;
+            -o-transition: background 0.3s ease;
+            transition: background 0.3s ease;
         }
 
         .popup-form button:hover {
@@ -91,29 +125,57 @@
 
         .tm-list-item {
             cursor: pointer;
+            -webkit-transition: transform 0.3s, box-shadow 0.3s;
+            -moz-transition: transform 0.3s, box-shadow 0.3s;
+            -o-transition: transform 0.3s, box-shadow 0.3s;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .tm-list-item:hover {
+            -webkit-transform: scale(1.05);
+            -moz-transform: scale(1.05);
+            -ms-transform: scale(1.05);
             transform: scale(1.05);
+            -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .tm-list-item:active {
+            -webkit-transform: scale(0.98);
+            -moz-transform: scale(0.98);
+            -ms-transform: scale(0.98);
             transform: scale(0.98);
+        }
+
+        /* Responsivitas */
+        @media (max-width: 480px) {
+            .popup-inner {
+                width: 85%;
+            }
+            .popup-form input,
+            .popup-form textarea {
+                font-size: 14px;
+            }
+            .popup-form button {
+                font-size: 14px;
+            }
         }
 
         .video-logo {
             font-size: 2em;
             color: #27ae60;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            -webkit-animation: pulse 2s infinite;
+            -moz-animation: pulse 2s infinite;
+            -o-animation: pulse 2s infinite;
             animation: pulse 2s infinite;
         }
         
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            0% { -webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1); transform: scale(1); }
+            50% { -webkit-transform: scale(1.1); -moz-transform: scale(1.1); -ms-transform: scale(1.1); transform: scale(1.1); }
+            100% { -webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1); transform: scale(1); }
         }
     </style>
 </head>
@@ -1321,83 +1383,97 @@
     
     
   <!-- Background video -->
- <div class="tm-video-wrapper">
-    <div class="tm-background-image" style="background: url('img/P24\ ARV\ MEDIA.png') no-repeat center center fixed; background-size: cover; width: 100%; height: 100%; opacity: 0.5;"></div>
-</div>
+<!-- Background video -->
+    <div class="tm-video-wrapper">
+        <div class="tm-background-image" style="background: url('img/P24 ARV MEDIA.png') no-repeat center center fixed; background-size: cover; width: 100%; height: 100%; opacity: 0.5;"></div>
+    </div>
 
-<script src="js/jquery-3.4.1.min.js"></script>    
-<script>
-    function setImageSize() {
-        const imgWidth = 1920;
-        const imgHeight = 1080;
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
-        const tempImgWidth = windowHeight * imgWidth / imgHeight;
-        const tempImgHeight = windowWidth * imgHeight / imgWidth;
-        const newImgWidth = tempImgWidth > windowWidth ? tempImgWidth : windowWidth;
-        const newImgHeight = tempImgHeight > windowHeight ? tempImgHeight : windowHeight;
-        const tmImage = $('.tm-background-image');
+    <script src="js/jquery-3.4.1.min.js"></script>    
+    <script>
+        function setImageSize() {
+            const imgWidth = 1920;
+            const imgHeight = 1080;
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            const tempImgWidth = windowHeight * imgWidth / imgHeight;
+            const tempImgHeight = windowWidth * imgHeight / imgWidth;
+            const newImgWidth = tempImgWidth > windowWidth ? tempImgWidth : windowWidth;
+            const newImgHeight = tempImgHeight > windowHeight ? tempImgHeight : windowHeight;
+            const tmImage = $('.tm-background-image');
 
-        tmImage.css('width', newImgWidth);
-        tmImage.css('height', newImgHeight);
-    }
-
-    function openTab(evt, id) {
-        $('.tm-tab-content').hide();
-        $('#' + id).show();
-        $('.tm-tab-link').removeClass('active');
-        $(evt.currentTarget).addClass('active');
-    }    
-
-    function initPage() {
-        let pageId = location.hash;
-
-        if(pageId) {
-            highlightMenu($(`.tm-page-link[href^="${pageId}"]`)); 
-            showPage($(pageId));
+            tmImage.css('width', newImgWidth);
+            tmImage.css('height', newImgHeight);
         }
-        else {
-            pageId = $('.tm-page-link.active').attr('href');
-            showPage($(pageId));
-        }
-    }
 
-    function highlightMenu(menuItem) {
-        $('.tm-page-link').removeClass('active');
-        menuItem.addClass('active');
-    }
+        function openTab(evt, id) {
+            $('.tm-tab-content').hide();
+            $('#' + id).show();
+            $('.tm-tab-link').removeClass('active');
+            $(evt.currentTarget).addClass('active');
+        }    
 
-    function showPage(page) {
-        $('.tm-page-content').hide();
-        page.show();
-    }
-
-    $(document).ready(function(){
-        initPage();
-
-        $('.tm-page-link').click(function(event) {
-            if(window.innerWidth > 991) {
-                event.preventDefault();
+        function initPage() {
+            let pageId = location.hash;
+            if(pageId) {
+                highlightMenu($(`.tm-page-link[href^="${pageId}"]`)); 
+                showPage($(pageId));
+            } else {
+                pageId = $('.tm-page-link.active').attr('href');
+                showPage($(pageId));
             }
-            highlightMenu($(event.currentTarget));
-            showPage($(event.currentTarget.hash));
+        }
+
+        function highlightMenu(menuItem) {
+            $('.tm-page-link').removeClass('active');
+            menuItem.addClass('active');
+        }
+
+        function showPage(page) {
+            $('.tm-page-content').hide();
+            page.show();
+        }
+
+        $(document).ready(function(){
+            initPage();
+
+            $('.tm-page-link').click(function(event) {
+                if(window.innerWidth > 991) {
+                    event.preventDefault();
+                }
+                highlightMenu($(event.currentTarget));
+                showPage($(event.currentTarget.hash));
+            });
+
+            $('.tm-tab-link').on('click', e => {
+                e.preventDefault(); 
+                openTab(e, $(e.target).data('id'));
+            });
+
+            $('.tm-tab-link.active').click();
+
+            setImageSize();
+
+            let timeout;
+            window.onresize = function(){
+                clearTimeout(timeout);
+                timeout = setTimeout(setImageSize, 100);
+            };
+
+            // Handle popup toggle
+            $('input[type="checkbox"]').change(function() {
+                const popupId = $(this).attr('id').replace('popup-toggle-', '#popup-');
+                if ($(this).is(':checked')) {
+                    $(popupId).show();
+                } else {
+                    $(popupId).hide();
+                }
+            });
+
+            $('.close-btn').click(function() {
+                const checkboxId = $(this).attr('for');
+                $('#' + checkboxId).prop('checked', false);
+            });
         });
-
-        $('.tm-tab-link').on('click', e => {
-            e.preventDefault(); 
-            openTab(e, $(e.target).data('id'));
-        });
-
-        $('.tm-tab-link.active').click();
-
-        setImageSize();
-
-        let timeout;
-        window.onresize = function(){
-            clearTimeout(timeout);
-            timeout = setTimeout(setImageSize, 100);
-        };
-    });
-</script>
+    </script>
 </body>
 </html>
