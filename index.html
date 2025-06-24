@@ -1384,96 +1384,83 @@
     
   <!-- Background video -->
 <!-- Background video -->
-    <div class="tm-video-wrapper">
-        <div class="tm-background-image" style="background: url('img/P24 ARV MEDIA.png') no-repeat center center fixed; background-size: cover; width: 100%; height: 100%; opacity: 0.5;"></div>
-    </div>
+ <div class="tm-video-wrapper">
+    <div class="tm-background-image" style="background: url('img/P24\ ARV\ MEDIA.png') no-repeat center center fixed; background-size: cover; width: 100%; height: 100%; opacity: 0.5;"></div>
+</div>
 
-    <script src="js/jquery-3.4.1.min.js"></script>    
-    <script>
-        function setImageSize() {
-            const imgWidth = 1920;
-            const imgHeight = 1080;
-            const windowWidth = window.innerWidth;
-            const windowHeight = window.innerHeight;
-            const tempImgWidth = windowHeight * imgWidth / imgHeight;
-            const tempImgHeight = windowWidth * imgHeight / imgWidth;
-            const newImgWidth = tempImgWidth > windowWidth ? tempImgWidth : windowWidth;
-            const newImgHeight = tempImgHeight > windowHeight ? tempImgHeight : windowHeight;
-            const tmImage = $('.tm-background-image');
+<script src="js/jquery-3.4.1.min.js"></script>    
+<script>
+    function setImageSize() {
+        const imgWidth = 1920;
+        const imgHeight = 1080;
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const tempImgWidth = windowHeight * imgWidth / imgHeight;
+        const tempImgHeight = windowWidth * imgHeight / imgWidth;
+        const newImgWidth = tempImgWidth > windowWidth ? tempImgWidth : windowWidth;
+        const newImgHeight = tempImgHeight > windowHeight ? tempImgHeight : windowHeight;
+        const tmImage = $('.tm-background-image');
 
-            tmImage.css('width', newImgWidth);
-            tmImage.css('height', newImgHeight);
+        tmImage.css('width', newImgWidth);
+        tmImage.css('height', newImgHeight);
+    }
+
+    function openTab(evt, id) {
+        $('.tm-tab-content').hide();
+        $('#' + id).show();
+        $('.tm-tab-link').removeClass('active');
+        $(evt.currentTarget).addClass('active');
+    }    
+
+    function initPage() {
+        let pageId = location.hash;
+
+        if(pageId) {
+            highlightMenu($(`.tm-page-link[href^="${pageId}"]`)); 
+            showPage($(pageId));
         }
+        else {
+            pageId = $('.tm-page-link.active').attr('href');
+            showPage($(pageId));
+        }
+    }
 
-        function openTab(evt, id) {
-            $('.tm-tab-content').hide();
-            $('#' + id).show();
-            $('.tm-tab-link').removeClass('active');
-            $(evt.currentTarget).addClass('active');
-        }    
+    function highlightMenu(menuItem) {
+        $('.tm-page-link').removeClass('active');
+        menuItem.addClass('active');
+    }
 
-        function initPage() {
-            let pageId = location.hash;
-            if(pageId) {
-                highlightMenu($(`.tm-page-link[href^="${pageId}"]`)); 
-                showPage($(pageId));
-            } else {
-                pageId = $('.tm-page-link.active').attr('href');
-                showPage($(pageId));
+    function showPage(page) {
+        $('.tm-page-content').hide();
+        page.show();
+    }
+
+    $(document).ready(function(){
+        initPage();
+
+        $('.tm-page-link').click(function(event) {
+            if(window.innerWidth > 991) {
+                event.preventDefault();
             }
-        }
-
-        function highlightMenu(menuItem) {
-            $('.tm-page-link').removeClass('active');
-            menuItem.addClass('active');
-        }
-
-        function showPage(page) {
-            $('.tm-page-content').hide();
-            page.show();
-        }
-
-        $(document).ready(function(){
-            initPage();
-
-            $('.tm-page-link').click(function(event) {
-                if(window.innerWidth > 991) {
-                    event.preventDefault();
-                }
-                highlightMenu($(event.currentTarget));
-                showPage($(event.currentTarget.hash));
-            });
-
-            $('.tm-tab-link').on('click', e => {
-                e.preventDefault(); 
-                openTab(e, $(e.target).data('id'));
-            });
-
-            $('.tm-tab-link.active').click();
-
-            setImageSize();
-
-            let timeout;
-            window.onresize = function(){
-                clearTimeout(timeout);
-                timeout = setTimeout(setImageSize, 100);
-            };
-
-            // Handle popup toggle
-            $('input[type="checkbox"]').change(function() {
-                const popupId = $(this).attr('id').replace('popup-toggle-', '#popup-');
-                if ($(this).is(':checked')) {
-                    $(popupId).show();
-                } else {
-                    $(popupId).hide();
-                }
-            });
-
-            $('.close-btn').click(function() {
-                const checkboxId = $(this).attr('for');
-                $('#' + checkboxId).prop('checked', false);
-            });
+            highlightMenu($(event.currentTarget));
+            showPage($(event.currentTarget.hash));
         });
-    </script>
+
+        $('.tm-tab-link').on('click', e => {
+            e.preventDefault(); 
+            openTab(e, $(e.target).data('id'));
+        });
+
+        $('.tm-tab-link.active').click();
+
+        setImageSize();
+
+        let timeout;
+        window.onresize = function(){
+            clearTimeout(timeout);
+            timeout = setTimeout(setImageSize, 100);
+        };
+    });
+</script>
 </body>
 </html>
