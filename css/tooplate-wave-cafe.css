@@ -1,7 +1,13 @@
-/* Tooplate 2121 Wave Cafe
-https://www.tooplate.com/view/2121-wave-cafe */
+/* Tooplate 2121 Wave Cafe - Modified for Cross-Browser Compatibility */
+/* https://www.tooplate.com/view/2121-wave-cafe */
 
-html { scroll-behavior: smooth; }
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     margin: 0;
@@ -23,15 +29,27 @@ h1 {
 /* Efek transisi untuk elemen kotak dan item list */
 .square,
 .tm-list-item {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
 /* Efek skala saat hover atau fokus */
 .tp-transform {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
     transform: scale(1);
 }
 .tp-transform:hover,
 .tp-transform:focus {
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
     transform: scale(1.05);
 }
 
@@ -46,15 +64,23 @@ h1 {
 
 /* Kombinasi efek skala dan warna */
 .tp-both {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
     transform: scale(1);
     background-color: #f5f5f5;
     cursor: pointer;
     border-radius: 12px;
     display: inline-block;
-    text-decoration: none;  
+    text-decoration: none;
 }
 .tp-both:hover,
 .tp-both:focus {
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
     transform: scale(1.05);
     background-color: #d4f1f4;
 }
@@ -69,6 +95,7 @@ h1 {
     border: 1px solid #ddd;
     border-radius: 12px;
     background-color: #f7f7f7;
+    -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
@@ -93,7 +120,7 @@ h1 {
     color: #000 !important;
     display: flex;
     justify-content: space-between;
-    align-items: center;;
+    align-items: center;
 }
 
 .tm-list-item-price {
@@ -144,7 +171,7 @@ h1 {
 #popup-toggle-xt3:checked ~ #popup-xt3,
 #popup-toggle-g100kga:checked ~ #popup-g100kga,
 #popup-toggle-s5:checked ~ #popup-s5,
-#popup-toggle-hot-artlens:checked ~ #popup-artlens,
+#popup-toggle-hot-artlens:checked ~ #popup-hot-artlens,
 #popup-toggle-hot-dghsm:checked ~ #popup-dghsm,
 #popup-toggle-hot-dgos:checked ~ #popup-dgos,
 #popup-toggle-hot-divc:checked ~ #popup-divc,
@@ -161,25 +188,29 @@ h1 {
 #popup-toggle-fx30:checked ~ #popup-fx30 {
     display: flex;
 }
+
 .popup-inner {
-     background: #0B5269;
+    background: #0B5269;
     padding: 20px;
     border-radius: 10px;
     max-width: 500px;
     width: 90%;
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Animasi muncul */
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; -webkit-transform: scale(0.9); }
+    to { opacity: 1; -webkit-transform: scale(1); }
+}
+@-moz-keyframes fadeIn {
+    from { opacity: 0; -moz-transform: scale(0.9); }
+    to { opacity: 1; -moz-transform: scale(1); }
+}
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
 
 .popup-header {
@@ -203,7 +234,11 @@ h1 {
     right: 10px;
     top: 10px;
     padding: 5px 10px;
-    transition: color 0.3s ease
+    -webkit-transition: color 0.3s ease;
+    -moz-transition: color 0.3s ease;
+    -ms-transition: color 0.3s ease;
+    -o-transition: color 0.3s ease;
+    transition: color 0.3s ease;
 }
 .close-btn:hover {
     color: #ddd;
@@ -230,6 +265,29 @@ h1 {
     box-sizing: border-box;
     background-color: #fff;
     color: #333;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.popup-form input::-webkit-input-placeholder,
+.popup-form textarea::-webkit-input-placeholder {
+    color: #666;
+}
+.popup-form input:-moz-placeholder,
+.popup-form textarea:-moz-placeholder {
+    color: #666;
+}
+.popup-form input::-moz-placeholder,
+.popup-form textarea::-moz-placeholder {
+    color: #666;
+}
+.popup-form input:-ms-input-placeholder,
+.popup-form textarea:-ms-input-placeholder {
+    color: #666;
+}
+.popup-form input::placeholder,
+.popup-form textarea::placeholder {
+    color: #666;
 }
 
 .popup-form button {
@@ -240,13 +298,16 @@ h1 {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    -webkit-transition: background 0.3s ease;
+    -moz-transition: background 0.3s ease;
+    -ms-transition: background 0.3s ease;
+    -o-transition: background 0.3s ease;
+    transition: background 0.3s ease;
 }
 
 .popup-form button:hover {
     background: #0056b3;
 }
-
-
 
 ul {
     padding: 0;
@@ -260,6 +321,10 @@ nav > ul > li {
 a {
     color: #a8d5d5;
     text-decoration: none;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
@@ -291,6 +356,10 @@ h2 {
     background: url('img/TEST1.PNG') no-repeat center center fixed;
     background-size: cover;
     opacity: 0.5;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
     transition: opacity 0.3s ease-in-out;
 }
 
@@ -306,8 +375,8 @@ h2 {
 .tm-left,
 .tm-right {
     width: 100%;
-    padding-left: 25px; /* Lebar navigasi (500px) + ruang (20px) */
-    box-sizing: border-box; /* Pastikan padding tidak menambah lebar total */
+    padding-left: 25px;
+    box-sizing: border-box;
     min-height: 75vh;
 }
 
@@ -334,15 +403,16 @@ h2 {
     font-size: 2.2rem;
     font-style: normal;
     text-align: center;
-    -webkit-text-stroke: 1px #0B5269; /* Stroke untuk browser WebKit (Chrome, Safari) */
+    -webkit-text-stroke: 1px #0B5269;
     text-shadow: 
         1px 1px 0 #0B5269,
         -1px -1px 0 #0B5269,
         1px -1px 0 #0B5269,
-        -1px 1px 0 #0B5269; /* Alternatif untuk browser lain */
+        -1px 1px 0 #0B5269;
 }
 
 .tm-left-inner {
+-motif {
     max-width: 500px;
     width: 100%;
 }
@@ -383,7 +453,6 @@ h2 {
 .tm-black-bg {
     background-color: rgba(0,0,0,0.6);
     color: white;
-    
 }
 
 .tm-drinks-nav > ul > li {
@@ -447,11 +516,15 @@ h2 {
 }
 
 .tm-tab-content {
+    -webkit-animation: fadeEffect 1s;
+    -moz-animation: fadeEffect 1s;
     animation: fadeEffect 1s;
     padding: 20px;
 }
 
 .tm-page-content {
+    -webkit-animation: fadeEffect 1s;
+    -moz-animation: fadeEffect 1s;
     animation: fadeEffect 1s;
 }
 
@@ -473,6 +546,14 @@ h2 {
 }
 
 /* Go from zero to full opacity */
+@-webkit-keyframes fadeEffect {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+@-moz-keyframes fadeEffect {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
 @keyframes fadeEffect {
     from { opacity: 0.3; }
     to { opacity: 1; }
@@ -487,7 +568,7 @@ h2 {
 .tm-about-header {
     font-size: 2em;
     margin-bottom: 20px;
-    color: #96FEFF; /* Merah sesuai gambar */
+    color: #96FEFF;
 }
 
 .tm-about-item {
@@ -500,6 +581,7 @@ h2 {
     width: 200px;
     height: auto;
     border-radius: 10px;
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -507,32 +589,18 @@ h2 {
     flex: 1;
     font-size: 1.1em;
     line-height: 1.6;
-    color: #ffffff; /* Teks putih untuk kontras dengan latar belakang gelap */
+    color: #ffffff;
 }
 
 .tm-about-text p {
     margin: 10px 0;
 }
 
-/* About 
-.tm-about-box-1 {
-    padding: 40px 30px 50px 0;
-}
-
-.tm-about-box-2 {
-    padding: 50px 40px 30px;
-}
-
-.tm-about-header {
-    margin-left: 220px;
-}*/
-
 /* Special */
-
 .tm-special-items {
     display: grid;
-    grid-template-columns: repeat(2, 0.7fr); /* Mengatur dua kolom dengan lebar yang sama */
-    gap: 10px; /* Jarak antar item */
+    grid-template-columns: repeat(2, 0.7fr);
+    gap: 10px;
     padding: 10px;
 }
 
@@ -556,9 +624,10 @@ h2 {
     font-size: 1.1rem;
     margin-bottom: 10px;
 }
-.tm-special-item-title1{
-color: #0056b3;
-font-size: medium;
+
+.tm-special-item-title1 {
+    color: #0056b3;
+    font-size: medium;
 }
 
 .tm-special-item-description {
@@ -590,6 +659,7 @@ font-size: medium;
     background-color: #1a2a3a;
     padding: 20px;
     border-radius: 5px;
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     z-index: 1000;
     width: 300px;
@@ -615,11 +685,15 @@ font-size: medium;
     border-radius: 4px;
     background-color: #2e4a62;
     color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
 }
 
-.tm-mb-30 {
-    margin-bottom: 30px;
-}
+.tm-form-control::-webkit-input-placeholder { color: white; }
+.tm-form-control:-moz-placeholder { color: white; }
+.tm-form-control::-moz-placeholder { color: white; }
+.tm-form-control:-ms-input-placeholder { color: white; }
+.tm-form-control::placeholder { color: white; }
 
 .tm-btn-primary {
     background-color: #ff0000;
@@ -628,6 +702,11 @@ font-size: medium;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    -webkit-transition: background 0.3s ease;
+    -moz-transition: background 0.3s ease;
+    -ms-transition: background 0.3s ease;
+    -o-transition: background 0.3s ease;
+    transition: background 0.3s ease;
 }
 
 .tm-btn-primary:hover {
@@ -641,16 +720,16 @@ font-size: medium;
 #contactPopup {
     display: none;
 }
- .tm-special-item-text{
+
+.tm-special-item-text {
     color: #ffffff;
 }
-.tm-special-item-text1{
+
+.tm-special-item-text1 {
     color: #000;
     font-weight: bold;
     font-size: small;
 }
-
-
 
 /* Contact */
 .tm-contact-text-container {
@@ -673,7 +752,7 @@ font-size: medium;
     box-sizing: border-box;
     width: 100%;
     padding: 15px;
-    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-family: inherit;
     font-size: 1rem;
     line-height: 2;
     color: #fff;
@@ -683,8 +762,10 @@ font-size: medium;
     border-bottom: 1px solid white;
 }
 
-.tm-form-control::-webkit-input-placeholder { color: white; } /* Edge */
-.tm-form-control:-ms-input-placeholder { color: white; } /* Internet Explorer 10-11 */
+.tm-form-control::-webkit-input-placeholder { color: white; }
+.tm-form-control:-moz-placeholder { color: white; }
+.tm-form-control::-moz-placeholder { color: white; }
+.tm-form-control:-ms-input-placeholder { color: white; }
 .tm-form-control::placeholder { color: white; }
 
 .tm-btn-primary {
@@ -694,6 +775,10 @@ font-size: medium;
     padding: 12px 40px;
     font-size: 1.4rem;
     cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
@@ -719,12 +804,13 @@ font-size: medium;
 }
 
 @media (max-width: 991px) {
-.tm-left-inner { position: static; }
+    .tm-left-inner { position: static; }
     .tm-left, .tm-right { width: 100%; }
     .tm-left { margin-bottom: 50px; }
     .tm-row { display: block; }
     .tm-right { padding-left: 0; }
 }
+
 @media (max-width: 574px) {
     .tm-site-nav-ul { display: block; }
 }
@@ -767,8 +853,9 @@ font-size: medium;
     .tm-drinks-nav > ul > li { margin-bottom: 10px; }
     .tm-drinks-nav > ul > li > a { display: block; }
 }
+
 @media (max-width: 768px) {
     .tm-special-items {
-        grid-template-columns: 1fr; /* Satu kolom pada layar kecil */
+        grid-template-columns: 1fr;
     }
 }
